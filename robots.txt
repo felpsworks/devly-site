@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devly.com.br/sitemap.xml
