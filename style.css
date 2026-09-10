@@ -139,6 +139,9 @@
     border:1px solid var(--line-soft); padding:5px 11px; border-radius:99px;
   }
 
+  .hero-mockup{animation-delay:.2s;}
+  .hero-mockup img{width:100%; height:auto; display:block;}
+
   .phone-stage{position:relative; height:420px; animation-delay:.2s;}
   @media (max-width:940px){ .phone-stage{height:380px; margin-top:12px;} }
   .phone{
@@ -211,6 +214,11 @@
   .sol-visual .phone{position:relative; width:132px; box-shadow:0 14px 30px -12px rgba(0,0,0,.6);}
   .sol-visual .phone::before{width:36px; top:11px;}
   .sol-visual .sol-shot{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .mini-phones{display:flex; align-items:center; justify-content:center; gap:12px;}
+  .mini-phones .phone{position:relative; width:100px; box-shadow:0 14px 30px -12px rgba(0,0,0,.6);}
+  .mini-phones .phone::before{width:30px; top:9px;}
+  .sol-grid-2col{grid-template-columns:1fr 1fr; max-width:720px; margin:0 auto 40px;}
+  @media (max-width:640px){ .sol-grid-2col{grid-template-columns:1fr; max-width:420px;} }
   .sol-body{padding:24px 24px 26px; display:flex; flex-direction:column; gap:12px; flex:1;}
   .sol-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
   .sol-card h3{font-size:19px; font-weight:600;}
