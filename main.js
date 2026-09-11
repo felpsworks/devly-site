@@ -48,20 +48,37 @@
   // ---- lead form: turns what's typed into a ready-to-send WhatsApp/e-mail message ----
   var leadNome = document.getElementById('leadNome');
   var leadWhats = document.getElementById('leadWhats');
+  var leadEmpresa = document.getElementById('leadEmpresa');
+  var leadSegmento = document.getElementById('leadSegmento');
+  var leadTipo = document.getElementById('leadTipo');
   var leadIdeia = document.getElementById('leadIdeia');
+  var leadFaixa = document.getElementById('leadFaixa');
   var leadSubmitBtn = document.getElementById('leadSubmitBtn');
   var leadEmailLink = document.getElementById('leadEmailLink');
   if(leadSubmitBtn){
     var LEAD_WA_NUMBER = '5519981862800';
     var LEAD_EMAIL = 'contatodevly@gmail.com';
+    var checkedValue = function(group){
+      if(!group) return '';
+      var el = group.querySelector('input:checked');
+      return el ? el.value : '';
+    };
     var buildLeadMessage = function(){
       var nome = leadNome ? leadNome.value.trim() : '';
       var whats = leadWhats ? leadWhats.value.trim() : '';
+      var empresa = leadEmpresa ? leadEmpresa.value.trim() : '';
+      var segmento = leadSegmento ? leadSegmento.value : '';
+      var tipo = checkedValue(leadTipo);
       var ideia = leadIdeia ? leadIdeia.value.trim() : '';
+      var faixa = checkedValue(leadFaixa);
       var msg = 'Olá!';
       if(nome) msg += ' Meu nome é ' + nome + '.';
-      if(ideia) msg += ' Quero conversar sobre isto: ' + ideia;
+      if(empresa) msg += ' Empresa: ' + empresa + '.';
+      if(segmento) msg += ' Segmento: ' + segmento + '.';
+      if(tipo) msg += ' Preciso de: ' + tipo + '.';
+      if(ideia) msg += ' Quero conversar sobre isto: ' + ideia + (/[.!?]$/.test(ideia) ? '' : '.');
       else msg += ' Vim pelo site da DEVLY e quero conversar sobre um projeto.';
+      if(faixa) msg += ' Faixa de investimento: ' + faixa + '.';
       if(whats) msg += ' (Meu contato: ' + whats + ')';
       return msg;
     };
@@ -72,8 +89,14 @@
         leadEmailLink.href = 'mailto:' + LEAD_EMAIL + '?subject=' + encodeURIComponent('Contato pelo site da DEVLY') + '&body=' + encodeURIComponent(msg);
       }
     };
-    [leadNome, leadWhats, leadIdeia].forEach(function(f){
+    [leadNome, leadWhats, leadEmpresa, leadSegmento, leadIdeia].forEach(function(f){
       if(f) f.addEventListener('input', updateLeadLinks);
+    });
+    [leadSegmento].forEach(function(f){
+      if(f) f.addEventListener('change', updateLeadLinks);
+    });
+    [leadTipo, leadFaixa].forEach(function(group){
+      if(group) group.addEventListener('change', updateLeadLinks);
     });
     updateLeadLinks();
   }
