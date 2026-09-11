@@ -15,6 +15,25 @@
     });
   }
 
+  // ---- "Serviços" dropdown ----
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var ddBtn = dd.querySelector('.nav-dropdown-btn');
+    if(!ddBtn) return;
+    ddBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = dd.classList.toggle('open');
+      ddBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)){
+        dd.classList.remove('open');
+        dd.querySelector('.nav-dropdown-btn').setAttribute('aria-expanded','false');
+      }
+    });
+  });
+
   // ---- navbar scroll state (discrete style swap, not motion) ----
   var navHeader = document.querySelector('header.nav');
   if(navHeader){
