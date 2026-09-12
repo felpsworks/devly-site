@@ -486,7 +486,7 @@
 
   /* ---------- modelos por segmento: marquee de mockups (loop esquerda->direita) ---------- */
   .mockups-marquee{
-    overflow:hidden; padding:12px 0 4px; margin-top:44px;
+    overflow:hidden; padding:4px 0 4px; margin-top:8px;
     -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
     mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
