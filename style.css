@@ -484,6 +484,20 @@
   .niches-track .dot{color:var(--purple); opacity:.6;}
   @keyframes nichesScroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
 
+  /* ---------- modelos por segmento: marquee de mockups (loop esquerda->direita) ---------- */
+  .mockups-marquee{
+    overflow:hidden; padding:12px 0 4px; margin-top:44px;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .mockups-track{
+    display:flex; width:max-content; gap:56px; align-items:center;
+    animation:mockupsScrollLTR 68s linear infinite;
+  }
+  .mockups-track img{height:140px; width:auto; display:block; filter:drop-shadow(0 22px 40px rgba(0,0,0,.5));}
+  @media (max-width:720px){ .mockups-track img{height:96px;} .mockups-track{gap:32px;} }
+  @keyframes mockupsScrollLTR{from{transform:translateX(-50%);} to{transform:translateX(0);}}
+
   /* ---------- projetos: grid de mockups (laptop/celular por projeto) ---------- */
   .proj-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:8px 0 44px;}
   @media (max-width:860px){ .proj-grid{grid-template-columns:1fr; max-width:320px; margin-left:auto; margin-right:auto;} }
