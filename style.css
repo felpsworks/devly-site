@@ -274,12 +274,6 @@
   .research-question{font-family:'Space Grotesk'; font-weight:600; font-size:19px; color:var(--text); margin:0 0 18px;}
   .research-text p{color:var(--text-soft); font-size:16px; line-height:1.6; margin:0 0 14px; max-width:56ch;}
   .research-text .btn{margin-top:6px;}
-  .research-highlight{
-    display:flex; align-items:flex-start; gap:10px; margin:26px 0 0; padding:16px 18px; max-width:56ch;
-    background:rgba(62,220,150,.08); border:1px solid rgba(62,220,150,.24); border-radius:12px;
-    color:var(--text); font-size:14.5px; line-height:1.5;
-  }
-  .research-highlight span{color:var(--green); font-weight:700; flex:none;}
   .research-visual img{width:100%; height:auto; border-radius:16px; box-shadow:var(--shadow); display:block;}
 
   /* ---------- about ---------- */
@@ -478,8 +472,18 @@
   /* ---------- device mockup (notebook + celular, home hero) ---------- */
   .hero-inner > *{min-width:0;}
   .device-mockup{position:relative; display:flex; align-items:center; justify-content:center; width:100%; min-width:0; padding-top:8px;}
-  .device-mockup img{width:100%; max-width:560px; height:auto; display:block;
+  .hero-slideshow{position:relative; width:100%; max-width:560px; aspect-ratio:3/2;}
+  .hero-slideshow img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block;
     filter:drop-shadow(0 30px 60px rgba(0,0,0,.45));
+    opacity:0; animation:heroFade 30s ease-in-out infinite;
+  }
+  @keyframes heroFade{
+    0%{opacity:0;}
+    3%{opacity:1;}
+    14%{opacity:1;}
+    17%{opacity:0;}
+    100%{opacity:0;}
   }
 
   /* ---------- niches marquee (loop de segmentos atendidos) ---------- */
